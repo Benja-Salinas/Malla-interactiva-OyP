@@ -1,1 +1,128 @@
+:root {
+    --color-primario: #FFC0CB; /* Rosa claro */
+    --color-secundario: #FF69B4; /* Rosa más oscuro */
+    --color-acento: #DC143C; /* Rojo carmesí */
+    --color-texto: #333;
+    --color-aprobado: #90EE90; /* Verde claro */
+    --color-bloqueado: #d3d3d3; /* Gris claro */
+    --color-desbloqueado: #FFFFFF; /* Blanco */
+}
 
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: var(--color-primario);
+    color: var(--color-texto);
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 40px;
+    position: relative;
+    width: 100%;
+}
+
+h1 {
+    color: var(--color-acento);
+    font-size: 2.5em;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+}
+
+.background-decor {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 8em;
+    color: rgba(255, 105, 180, 0.1);
+    z-index: -1;
+    display: flex;
+    gap: 100px;
+    align-items: center;
+}
+
+.malla-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 20px;
+    width: 100%;
+    max-width: 1600px;
+}
+
+.nivel-columna {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.nivel-titulo {
+    font-weight: bold;
+    text-align: center;
+    color: var(--color-acento);
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.asignatura {
+    background-color: var(--color-bloqueado);
+    border: 2px solid var(--color-secundario);
+    border-radius: 10px;
+    padding: 15px;
+    text-align: center;
+    cursor: not-allowed;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.asignatura.desbloqueada {
+    background-color: var(--color-desbloqueado);
+    cursor: pointer;
+}
+
+.asignatura.aprobada {
+    background-color: var(--color-aprobado);
+    border-color: darkgreen;
+    cursor: default;
+}
+
+.asignatura.desbloqueada:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+
+.asignatura-nombre {
+    font-weight: bold;
+    font-size: 1em;
+    margin-bottom: 10px;
+}
+
+.asignatura-prerequisito {
+    font-size: 0.8em;
+    color: #666;
+}
+
+/* Animación de desbloqueo */
+@keyframes desbloqueoAnimacion {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    50% {
+        transform: scale(1.05);
+        box-shadow: 0 0 20px var(--color-secundario);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+}
+
+.desbloqueo-animacion {
+    animation: desbloqueoAnimacion 0.8s ease-in-out;
+}
