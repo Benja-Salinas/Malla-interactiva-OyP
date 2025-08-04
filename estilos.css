@@ -3,7 +3,8 @@
     --color-secundario: #FF69B4; /* Rosa más oscuro */
     --color-acento: #DC143C; /* Rojo carmesí */
     --color-texto: #333;
-    --color-aprobado: #90EE90; /* Verde claro */
+    /* Se cambió el color de aprobado a un tono rojo/rosado oscuro */
+    --color-aprobado: #db7093; /* PaleVioletRed */
     --color-bloqueado: #d3d3d3; /* Gris claro */
     --color-desbloqueado: #FFFFFF; /* Blanco */
 }
@@ -85,9 +86,10 @@ h1 {
     cursor: pointer;
 }
 
+/* --- CAMBIOS AQUÍ --- */
 .asignatura.aprobada {
-    background-color: var(--color-aprobado);
-    border-color: darkgreen;
+    background-color: var(--color-aprobado); /* Color de fondo rojo pálido */
+    border-color: var(--color-acento); /* Borde rojo carmesí */
     cursor: default;
 }
 
